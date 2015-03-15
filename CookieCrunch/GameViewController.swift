@@ -9,25 +9,37 @@
 import UIKit
 import SpriteKit
 
-extension SKNode {
-    class func unarchiveFromFile(file : NSString) -> SKNode? {
-        if let path = NSBundle.mainBundle().pathForResource(file, ofType: "sks") {
-            var sceneData = NSData(contentsOfFile: path, options: .DataReadingMappedIfSafe, error: nil)!
-            var archiver = NSKeyedUnarchiver(forReadingWithData: sceneData)
-            
-            archiver.setClass(self.classForKeyedUnarchiver(), forClassName: "SKScene")
-            let scene = archiver.decodeObjectForKey(NSKeyedArchiveRootObjectKey) as GameScene
-            archiver.finishDecoding()
-            return scene
-        } else {
-            return nil
-        }
-    }
-}
+//extension SKNode {
+//    class func unarchiveFromFile(file : NSString) -> SKNode? {
+//        if let path = NSBundle.mainBundle().pathForResource(file, ofType: "sks") {
+//            var sceneData = NSData(contentsOfFile: path, options: .DataReadingMappedIfSafe, error: nil)!
+//            var archiver = NSKeyedUnarchiver(forReadingWithData: sceneData)
+//            
+//            archiver.setClass(self.classForKeyedUnarchiver(), forClassName: "SKScene")
+//            let scene = archiver.decodeObjectForKey(NSKeyedArchiveRootObjectKey) as GameScene
+//            archiver.finishDecoding()
+//            return scene
+//        } else {
+//            return nil
+//        }
+//    }
+//}
 
 class GameViewController: UIViewController {
     
     var scene: GameScene!
+    
+    var level: Level!
+    
+    
+    func beginGame() {
+        shuffle()
+    }
+    
+    func shuffle() {
+        let newCookies = level.shuffle()
+        scene.addSpritesForCookies(newCookies)
+    }
     
     override func prefersStatusBarHidden() ->Bool {
         return true
@@ -52,8 +64,13 @@ class GameViewController: UIViewController {
         scene = GameScene(size: skView.bounds.size)
         scene.scaleMode = .AspectFill
         
+        level = Level()
+        scene.level = level
+        
         //presentare la scena
         skView.presentScene(scene)
+        
+        beginGame()
 
     }
 
