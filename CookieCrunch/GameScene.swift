@@ -24,6 +24,8 @@ class GameScene: SKScene {
     
     var swipeFromColumn: Int?
     var swipeFromRow: Int?
+    
+    var selectionSprite = SKSpriteNode()
 
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder) non è utilizzato in questa app")
@@ -100,6 +102,7 @@ class GameScene: SKScene {
             // 3
             if let cookie = level.cookieAtColumn(column, row: row) {
                 // 4
+                showSelectionIndicationForCookie(cookie)
                 swipeFromColumn = column
                 swipeFromRow = row
             }
@@ -140,9 +143,31 @@ class GameScene: SKScene {
         moveA.timingMode = .EaseOut
         spriteA.runAction(moveA, completion: completion)
         
-        let moveB = SKAction.moveTo(spriteB.position, duration: Duration)
+        let moveB = SKAction.moveTo(spriteA.position, duration: Duration)
         moveB.timingMode = .EaseOut
         spriteB.runAction(moveB)
+    }
+    
+    func showSelectionIndicationForCookie(cookie: Cookie) {
+        if selectionSprite.parent != nil {
+            selectionSprite.removeFromParent()
+        }
+        
+        if let sprite = cookie.sprite {
+            let texture = SKTexture(imageNamed: cookie.cookieType.hightlightedSpriteName)
+            selectionSprite.size = texture.size()
+            selectionSprite.runAction(SKAction.setTexture(texture))
+            
+            sprite.addChild(selectionSprite)
+            selectionSprite.alpha = 1.0
+        }
+    }
+    
+    func hideSelectionIndicator() {
+        selectionSprite.runAction(SKAction.sequence([
+            SKAction.fadeOutWithDuration(0.3),
+            SKAction.removeFromParent()
+            ]))
     }
     
     override func touchesMoved(touches: NSSet, withEvent event: UIEvent) {
@@ -171,6 +196,7 @@ class GameScene: SKScene {
             //4
             if horzDelta != 0 || vertDelta != 0 {
                 trySwapHorizontal(horzDelta, vertical:vertDelta)
+                hideSelectionIndicator()
                 
                 //5
                 swipeFromColumn = nil
@@ -179,6 +205,10 @@ class GameScene: SKScene {
     }
     
     override func touchesEnded(touches: NSSet, withEvent event: UIEvent) {
+        
+        if selectionSprite.parent != nil && swipeFromColumn != nil {
+            hideSelectionIndicator()
+        }
         swipeFromRow = nil
         swipeFromColumn = nil
     }
