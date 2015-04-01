@@ -4,10 +4,20 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>CookieCrunch WatchKit App.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>1</integer>
+		</dict>
 		<key>CookieCrunch.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
 			<integer>0</integer>
+		</dict>
+		<key>Notification - CookieCrunch WatchKit App.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>2</integer>
 		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
@@ -18,6 +28,11 @@
 			<true/>
 		</dict>
 		<key>376F728D1AB5D16F00B33A0B</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>379F5B7E1ABC1EA900C0E24D</key>
 		<dict>
 			<key>primary</key>
 			<true/>
