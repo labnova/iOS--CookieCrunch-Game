@@ -65,13 +65,27 @@ class GameViewController: UIViewController {
         scene.scaleMode = .AspectFill
         
         level = Level(filename: "Level_1")
+        
         scene.level = level
+        scene.addTiles()
+        
+        scene.swipeHandler = handleSwipe
         
         //presentare la scena
         skView.presentScene(scene)
         
         beginGame()
 
+    }
+    
+    func handleSwipe(swap: Swap) {
+        view.userInteractionEnabled = false
+        
+        level.performSwap(swap)
+        
+        scene.animateSwap(swap) {
+            self.view.userInteractionEnabled = true
+        }
     }
 
     

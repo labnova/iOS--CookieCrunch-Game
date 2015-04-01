@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		371A5FA11ACC28FF0050896F /* Tile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 371A5FA01ACC28FF0050896F /* Tile.swift */; };
 		371A5FA31ACC2B030050896F /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 371A5FA21ACC2B030050896F /* Extensions.swift */; };
+		371A5FA51ACC3F8F0050896F /* Swap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 371A5FA41ACC3F8F0050896F /* Swap.swift */; };
 		376F727B1AB5D16E00B33A0B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 376F727A1AB5D16E00B33A0B /* AppDelegate.swift */; };
 		376F727F1AB5D16F00B33A0B /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 376F727E1AB5D16F00B33A0B /* GameScene.swift */; };
 		376F72811AB5D16F00B33A0B /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 376F72801AB5D16F00B33A0B /* GameViewController.swift */; };
@@ -76,6 +77,7 @@
 /* Begin PBXFileReference section */
 		371A5FA01ACC28FF0050896F /* Tile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tile.swift; sourceTree = "<group>"; };
 		371A5FA21ACC2B030050896F /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		371A5FA41ACC3F8F0050896F /* Swap.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Swap.swift; sourceTree = "<group>"; };
 		376F72751AB5D16E00B33A0B /* CookieCrunch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CookieCrunch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		376F72791AB5D16E00B33A0B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		376F727A1AB5D16E00B33A0B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -163,6 +165,7 @@
 			children = (
 				376F727A1AB5D16E00B33A0B /* AppDelegate.swift */,
 				376F727E1AB5D16F00B33A0B /* GameScene.swift */,
+				371A5FA41ACC3F8F0050896F /* Swap.swift */,
 				376F72801AB5D16F00B33A0B /* GameViewController.swift */,
 				376F72821AB5D16F00B33A0B /* Main.storyboard */,
 				376F72851AB5D16F00B33A0B /* Images.xcassets */,
@@ -424,6 +427,7 @@
 				371A5FA31ACC2B030050896F /* Extensions.swift in Sources */,
 				376F72A71AB5E27F00B33A0B /* Level.swift in Sources */,
 				376F72A11AB5D7CE00B33A0B /* Cookie.swift in Sources */,
+				371A5FA51ACC3F8F0050896F /* Swap.swift in Sources */,
 				371A5FA11ACC28FF0050896F /* Tile.swift in Sources */,
 				376F72A51AB5DED500B33A0B /* Set.swift in Sources */,
 				376F72811AB5D16F00B33A0B /* GameViewController.swift in Sources */,
